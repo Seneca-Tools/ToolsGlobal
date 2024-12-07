@@ -1,0 +1,5 @@
+# helper windows batch scripts
+*.ps1
+assets/New2*.csv
+OldData/
+global.csv

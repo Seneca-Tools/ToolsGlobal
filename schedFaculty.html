@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+	<meta charset="utf-8" >
+	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+	<title>SCPA|SDDS|ITAS Tools Global: Schedule by Faculty Name(s)</title>
+	<link rel="stylesheet" href="style/section.css"> 
+	<script type="text/javascript" src="jscript/main.js"></script>
+</head>
+
+<body>
+
+<a href="index.html"><button class="toolType">SCPA|SDDS|ITAS Tools Global</button></a>
+<!-- <a href="schedFaculty.html"><button class="toolType">Faculty Name</button></a> -->
+<a href="schedRoom.html"><button class="toolType">Room Number</button></a>
+<a href="schedCourse.html"><button class="toolType">Course Code</button></a><br>
+
+<h1 class="senecaText">Schedule by Faculty Name(s)</h1>
+
+<h3>Usage:</h3> 
+<table>
+    <tr>
+        <td class="sampleHeader">Single Faculty:</td>
+        <td class="sample">partial_last , partial_first</td>
+    </tr>
+    <tr>
+        <td class="sampleHeader">Multiple Faculty:</td>
+        <td class="sample">partial_last , partial_first | partial_last , partial_first | ...</td>
+    </tr>
+</table>
+<br/>
+
+<table id="dataSourceSection" >
+    <tr>
+        <td/>
+        <td align="right">
+            <label class="lastUpdated" id="lastUpdated"/>
+        </td>
+    </tr>
+    <tr>
+        <td > <h3 class="tightFit">Enter the faculty name(s):</h3> </td>
+        <td align="right">
+            <label class="tightFit" for="termData-select">Term Data:</label>
+            <select class="tightFit" name="termData" id="termData-select" onchange="dataSourceChange()" >
+                <option value="2247Global" >2247 - Fall 2024</option>
+                <option value="2244Global" >2244 - Summer 2024</option>
+                <option value="2241Global" >2241 - Winter 2024</option>
+            </select>
+        </td>   
+    </tr>
+</table>
+
+<table id="querySearch" >
+    <tr>
+        <td class="textQueryArea"><textarea id="queryValue" rows="3" title="Enter: [partial last name],[partial first name] | ..." autofocus></textarea></td>
+        <td class="buttonSearch"><input class="search" type="button" value="Search" onclick="processFaculty()"></td>
+    </tr>    
+</table>
+
+
+<table id="Results" border="0" width="100%">
+	<tr >
+		<td id="SchedulePanel" ><div id=weekView></div></td>
+		<td id="LegendPanel" ><div id="legend"></div></td>
+	</tr>
+</table>
+
+<div id="debugInfo"></div>
+
+</body>
+</html>

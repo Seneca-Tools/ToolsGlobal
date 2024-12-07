@@ -1,0 +1,263 @@
+
+p,h4,h3,h2,h1 {
+    font-family: Arial, sans-serif;
+}
+
+/* 
+  Tool title/button/usage formatting 
+  ==================================
+*/
+
+.sampleHeader {
+  font-family: Arial, sans-serif;
+  font-weight: bolder;
+  margin: 5px;
+  padding: 5px;
+  text-align: right;
+}
+
+.lastUpdated {
+  font-family: Arial, sans-serif;
+  font-size: x-small;
+  font-weight: lighter;
+  margin: 5px;
+  padding: 5px;
+  text-align: right;
+}
+
+.sample {
+    font-family: Courier New, Consolas, monospace;
+    font-size:  smaller;
+    font-weight: bold;
+    color: #000;
+    text-align: left;
+    margin: 5px;
+    padding: 5px;
+    color: #000;
+    border: 1px solid slategrey;
+    background-color: rgb(241, 241, 241);
+}
+.senecaText{
+  color:darkred;
+}
+
+.toolType {
+    font-family: Arial, sans-serif;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: white;
+    text-align: left;
+    margin: 10px 10px 0px 0px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: darkred;
+    padding: 3px 6px 3px 6px;
+}
+
+  /* 
+    Output object formatting 
+    ========================
+  */
+
+.TimeAxis {
+  background-color: #000;
+  margin: 2px;
+  color: #fff;
+  vertical-align: top;
+  text-align: center;
+  border: 1px solid #000;
+  max-width: 100px;
+  opacity: .8;
+}
+
+.DayAxis {
+  height:38px;
+  background-color: #000;
+  margin: 2px;
+  color: #fff;
+  text-align: center;
+  opacity: .8;
+}
+
+.DataCell {
+  min-width: 150px;
+  min-height: 75px;
+  background-color: #fff;
+  margin: 2px;
+  vertical-align: top;
+  text-align: center;
+  color: #000;
+  border: 1.5px solid  #ccc;
+  background-color: #fff;
+}
+
+.legendItem {
+  display: block;
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  font-size: x-small;
+  font-weight: bold;
+}
+
+#legend {
+  font-family: Arial, sans-serif;
+  background: #fff;
+  padding: 10px;
+  margin: 30px 10px 10px 5px;
+  vertical-align: text-top;
+}
+
+#LegendPanel {
+width: 25%;
+min-width: 200px;
+max-width: 225px;
+vertical-align: top;
+}
+
+
+.FacultyLabel {
+  border-radius: 10px;
+  border-width: 1px;
+  margin: 1px;
+}
+
+#SchedulePanel {
+  width: 100%;
+  height: 100%;
+  vertical-align: top;
+}
+
+:root {
+  --grid-cols: 1;
+  --grid-rows: 1;
+}
+
+.grid-item {
+  padding: 1px; 
+  text-align: center;
+  vertical-align: top;
+  display: flexbox;
+}
+
+#Results{ 
+  border: 0;
+  max-width: 1100px;
+}
+
+#weekView {
+  display: grid;
+  border: 1px;
+  grid-gap: 1px;
+  grid-template-rows: 40px repeat(var(--grid-rows), 1fr);
+  grid-template-columns: 100px repeat(var(--grid-cols), 1fr);
+}
+
+/* Popup container - can be anything you want */
+.popup {
+  min-width: 150px;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+  visibility: hidden;
+  min-width: 150px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+  visibility: visible;
+  /* -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s; */
+}
+
+/* Add animation (fade in the popup) */
+/* @-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+} */
+
+/* 
+  Query section formatting 
+  ========================
+*/
+.tightFit{
+  padding: 0px;
+  margin: 0px;
+}
+
+#dataSourceSection{
+  max-width: 1100px;
+  width: 100%;
+}
+
+#querySearch{
+  max-width: 1100px;
+  width: 100%;
+}
+
+.textQueryArea{
+  width: 90%;
+  margin: 5px;
+  padding: 5px;
+}
+
+#queryValue {
+  width: 100%;
+  height: 100%;
+  border-width: 1.5px;
+  resize: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;   
+}
+
+.buttonSearch {
+  align-self: left;
+}
+.search {
+  height: 50px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  background-color: #eee;
+  vertical-align: middle;
+  align-self: left;
+  margin: 3px;
+  padding: 3px;
+}
