@@ -1,4 +1,4 @@
-# SDDSTools-Global
+# Tools-Global
 
 ## Application
 This is based on the streamlined version of SDDSTools which is focused on data for the ITAS, SDDS, and SCPA schools, however this version supports data for ALL Schools operating out of Newnham and Markham campuses(requires more memory for datastore!).
