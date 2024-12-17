@@ -13,13 +13,13 @@
 //
 // Data Version: update this when the data file changes to ensure the data 
 // is reloaded on clients side
-const dv = "20241212.3";
-const lastUpdated = "2024-12-12";
+const dv = "20241217.1";
+const lastUpdated = "2024-12-17";
 var activeTerm = "2251Global";
 // Data File: CSV file containing the data to be used by the app (https://seneca-tools.github.io/ToolsGlobal/assets)
 const dataFileRoot = "https://seneca-tools.github.io/ToolsGlobal/assets/";
 // The fields we care about in the CSV file (assuming these field names will not change)
-const CSVFieldName = ['Subject', 'Catalog', 'Section', 'Class Stat', 'Cap Enrl', 'Facil ID', 'Meeting Start',
+const CSVFieldName = ['Subject', 'Catalog', 'Section', 'Class Stat', 'Cap Enrl', 'Tot Enrl', 'Facil ID', 'Meeting Start',
     'Meeting End', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Mode', 'Campus', 'Instructor Name'];
 // Index of CSVFieldName in CSV file (used to map the CSV fields to the object fields)
 // This array is populated when the data file is loaded
@@ -27,7 +27,7 @@ const CSVFieldName = ['Subject', 'Catalog', 'Section', 'Class Stat', 'Cap Enrl',
 var CSVFieldIndex = [];
 // Object fields mapped to the CSV fields
 // These fields are used to create the object array (clientData)
-const OBJFieldName = ['subject', 'catalog', 'section', 'classStat', 'capEnrol', 'room', 'timeStart',
+const OBJFieldName = ['subject', 'catalog', 'section', 'classStat', 'capEnrol', 'totEnrol', 'room', 'timeStart',
     'timeEnd', 'isMon', 'isTue', 'isWed', 'isThur', 'isFri', 'mode', 'campus', 'last', 'first'];
 // Object Data: All records are stored in this array (on average between 600-1500 records)
 var clientData = [];
@@ -124,7 +124,7 @@ function loadData() {
                     // classNum: rawFields[CSVFieldIndex[OBJFieldName.indexOf('classNum')]],
                     classStat: rawFields[CSVFieldIndex[OBJFieldName.indexOf('classStat')]],
                     capEnrol: rawFields[CSVFieldIndex[OBJFieldName.indexOf('capEnrol')]],
-                    // totEnrol: rawFields[CSVFieldIndex[OBJFieldName.indexOf('totEnrol')]],
+                    totEnrol: rawFields[CSVFieldIndex[OBJFieldName.indexOf('totEnrol')]],
                     // roomCap: rawFields[CSVFieldIndex[OBJFieldName.indexOf('roomCap')]],
                     room: rawFields[CSVFieldIndex[OBJFieldName.indexOf('room')]],
                     timeStart: rawFields[CSVFieldIndex[OBJFieldName.indexOf('timeStart')]],
@@ -349,7 +349,7 @@ function processFaculty() {
                         section.style.backgroundColor = legendList[idx].backgroundColor;
                         section.style.borderColor = legendList[idx].backgroundColor;
                         section.style.color = legendList[idx].color;
-                        section.innerHTML = rec.subject + rec.catalog + ' (' + rec.section + ')<br />' + rec.first[0] + '. ' + rec.last + '<br />' + rec.room;
+                        section.innerHTML = rec.subject + rec.catalog + ' (' + rec.section + ')<br />' + rec.first[0] + '. ' + rec.last + ' (enrl:' + rec.totEnrol + ')<br />' + rec.room;
                         section.title = rec.subject + rec.catalog + ':' + rec.section + '\n' + rec.first[0] + '.' + rec.last + '\n' + rec.room + '\n' + rec.timeStart + '-' + rec.timeEnd + '\n' + rec.campus;
                         // Add the data cell to the schedule table
                         addElement(periodDuration, wkDay, section, colour);
@@ -429,8 +429,8 @@ function processCourse() {
                         id: rec.subject + rec.catalog + rec.section.substring(0, 3) + rec.first[0] + '. ' + rec.last,
                         backgroundColor: colour.background,
                         color: colour.color,
-                        innerHTML: rec.subject.substring(0, 3) + rec.catalog + ' - ' + rec.section.substring(0, 3) +
-                            '<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(' + rec.last + ', ' + rec.first + ')',
+                        innerHTML: rec.subject.substring(0, 3) + rec.catalog + ' - ' + rec.section.substring(0, 3) + ' (enrl:' + rec.totEnrol +
+                            ')<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(' + rec.last + ', ' + rec.first + ')',
                         contactHours: 0
                     };
                     // add to the array of legend entries
@@ -530,8 +530,8 @@ function processRoom() {
                         id: rec.room + rec.subject + rec.catalog + rec.section.substring(0, 3) + rec.first[0] + '. ' + rec.last,
                         backgroundColor: colour.background,
                         color: colour.color,
-                        innerHTML: rec.room + ' : ' + rec.subject.substring(0, 3) + rec.catalog + ' - ' + rec.section.substring(0, 3) +
-                            '<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + rec.last + ', ' + rec.first,
+                        innerHTML: rec.room + ' : ' + rec.subject.substring(0, 3) + rec.catalog + ' - ' + rec.section.substring(0, 3) + '(enrl:' + rec.totEnrol +
+                            ')<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + rec.last + ', ' + rec.first,
                         contactHours: 0
                     };
                     // add to the array of legend entries
