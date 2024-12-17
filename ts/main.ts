@@ -13,7 +13,7 @@
 //
 // Data Version: update this when the data file changes to ensure the data 
 // is reloaded on clients side
-const dv = "20241217.1";
+const dv = "20241217.2";
 const lastUpdated = "2024-12-17";
 var activeTerm = "2251Global";
 
@@ -746,7 +746,7 @@ function processRoom()
                         id: rec.room + rec.subject + rec.catalog + rec.section.substring(0, 3) + rec.first[0] + '. ' + rec.last,
                         backgroundColor: colour.background,
                         color: colour.color,
-                        innerHTML: rec.room + ' : ' + rec.subject.substring(0, 3) + rec.catalog + ' - ' + rec.section.substring(0, 3) + '(enrl:' + rec.totEnrol +
+                        innerHTML: rec.room + ':' + rec.subject.substring(0, 3) + rec.catalog + '-' + rec.section.substring(0, 3) + '(enrl:' + rec.totEnrol +
                                     ')<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + rec.last + ', ' + rec.first,
                         contactHours: 0
                     };
