@@ -13,8 +13,8 @@
 //
 // Data Version: update this when the data file changes to ensure the data 
 // is reloaded on clients side
-const dv = "20260428.1";
-const lastUpdated = "2026-04-28";
+const dv = "20260501.1";
+const lastUpdated = "2026-05-01";
 var activeTerm = "2264Global";
 // Data File: CSV file containing the data to be used by the app (https://seneca-tools.github.io/ToolsGlobal/assets)
 const dataFileRoot = "https://seneca-tools.github.io/ToolsGlobal/assets/";
